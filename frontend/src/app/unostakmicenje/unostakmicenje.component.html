@@ -1,0 +1,71 @@
+<table>
+    <tr>
+        <td>Sport:</td> 
+        <td>
+            <input type="text" name="sport" [(ngModel)]='sport'>
+        </td>
+    </tr>
+    <tr>
+        <td>Disciplina:</td>
+        <td>
+            <input type="text" name="disciplina" [(ngModel)]='disciplina'>
+        </td>
+    </tr>
+    <tr>
+        <td>Vrsta(ekipni/individualni) :</td>
+        <td>
+            <input type="radio" name="vrsta" value="Ekipni" [(ngModel)]='vrsta'> Ekipni
+            <input type="radio" name="vrsta" value="Individualni" [(ngModel)]='vrsta'> Individualni
+           
+        </td>
+    </tr>
+    <tr>
+        <td>Pol:</td>
+        <td>
+            <input type="radio" name="pol" value="M" [(ngModel)]='pol'> M
+            <input type="radio" name="pol" value="Z" [(ngModel)]='pol'> Z
+           
+        </td>
+    </tr>
+
+        <tr>
+        <td>Datum pocetka:</td>
+        <td>
+            <input type="text" name="datum_poc" [(ngModel)]='datum_poc'>
+        </td>
+    </tr>
+    <tr>
+        <td>Datum kraja:</td>
+        <td>
+            <input type="text" name="datum_kraj" [(ngModel)]='datum_kraj'>
+        </td>
+    </tr>
+    <tr>
+        <td>Lokacija:</td>
+        <td>
+            <input type="text" name="lokacija" [(ngModel)]='lokacija'>
+        </td>
+    </tr>
+    <tr>
+        <td>Delegat:</td>
+        <td>
+            <select name="delegat"  [(ngModel)] = 'delegat'>
+            <option [value]="d.username" *ngFor='let d of delegati'>{{d.name}} {{d.lastname}}</option>
+        </select>
+        </td>
+    </tr>
+
+</table>
+
+
+<div>
+    <button (click)='dodajTakmicenje()'>Dodaj</button>
+</div>
+
+<div class="poruka">
+    {{poruka}}
+</div>
+
+<div class="dugmeOdjava">
+    <button (click) = 'nazad()'>Nazad>></button>
+</div>

@@ -1,0 +1,14 @@
+.poruka{
+    color:royalblue;
+}
+
+.dugmeOdjava{
+    position: absolute;
+    left:    0;
+    bottom:   0;
+    text-align: center;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    display: grid;
+}

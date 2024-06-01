@@ -1,0 +1,44 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css">
+
+Prijava sportista za takmicenja na OI 2021!
+
+<table>
+    <tr>
+        <td>Ime i prezime:
+            <input type="text" name="ime_i_prezime" [(ngModel)]='ime_i_prezime'>
+        </td>
+    </tr>
+        <tr>
+        <td>Pol:
+            <input type="radio" name="pol" value="M" [(ngModel)]= 'pol'>M
+            <input type="radio" name="pol" value="Z" [(ngModel)]= 'pol'>Z
+        </td>
+    </tr>
+        <tr>
+        <td>Sport:
+            <select name="sport" [(ngModel)]= 'sport' (ngModelChange) = 'onSelected($event)'>
+                <option [value]="s.sport" *ngFor = 'let s of sportovi'>{{s.sport}}</option>
+            </select>
+        </td>
+    </tr>
+        <tr>
+        <td>Disciplina(za isti sport moze vise disciplina):
+
+            <select name="discipline" id="" multiple [(ngModel)] = 'discipline'>
+                <option [value]="d.naziv" *ngFor = 'let d of sveDiscipline'>{{d.naziv}}</option>
+            </select>
+        </td>
+    </tr>
+</table>
+
+<div>
+    <button (click) = 'dodajSportistu()'>Dodaj sportistu</button>
+</div>
+
+<div>
+    {{poruka}}
+</div>
+
+<div class="dugme">
+    <button (click) = 'nazad()'> Nazad<< </button>
+</div>

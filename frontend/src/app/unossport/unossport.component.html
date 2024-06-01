@@ -1,0 +1,47 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css">
+<table  class="table table-striped">
+    <thead>
+    <tr>
+        <th>
+            Naziv sporta:
+        </th>
+        <th>
+            Naziv sportske discipline(ako postoji) : 
+        </th>
+        <th>
+            Vrsta discipline(ekipni/individualni) : 
+        </th>
+        <th>
+            Minimalan broj igraca(ekipni sport):
+        </th>
+        <th>
+            Maksimalan broj igraca(ekipni sport):
+        </th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        <td>
+            <input type="text" name="sport" [(ngModel)] = 'sport'>
+        </td>
+        <td>
+            <input type="text" name="naziv" [(ngModel)] = 'naziv'>
+        </td>
+        <td>
+            <input type="text" name="vrsta" [(ngModel)] = 'vrsta'>
+        </td>
+        <td>
+            <input type="text" name="min" [(ngModel)]= 'min'>
+        </td>
+        <td>
+            <input type="text" name="max" [(ngModel)] = 'max'>
+        </td>
+    </tr>
+</tbody>
+</table>
+<div class="dugme">
+    <button (click) = 'dodajSport()'>Unesite sport</button>
+</div>
+<div>
+    <button (click) = 'nazad()'>Nazad>></button>
+</div>

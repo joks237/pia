@@ -1,0 +1,348 @@
+<div *ngIf = 'disciplina == "skok u vis" || disciplina == "skok u dalj" || disciplina == "skok s motkom" || disciplina == "troskok" || disciplina == "bacanje kugle" || disciplina == "bacanje kladiva" || disciplina == "bacanje koplja" ||
+disciplina == "bacanje diska" '>
+
+Rezultate uneti u formatu M,CM. Svaki takmicar ima tri pokusaja.
+<table>
+
+    <tr>
+        <td>Naziv takmicenja:</td>
+        <td>Sportista: </td>
+        
+        <td>Prvi pokusaj:</td>
+        <td>Drugi pokusaj:</td>
+        <td>Treci pokusaj:</td>
+    </tr>
+    <tr *ngFor = 'let r of rasporedTakmicenja'>
+        <td>
+            {{r.naziv}}
+        </td>
+        <td *ngIf  = 'ponovniPokusaj == false'>
+            <select name="takmicari" id="" [(ngModel)] = 'takmicar'>
+                <option [value]="t.idS" *ngFor = 'let t of r.takmicari'>{{t.ime_i_prezime}}</option>
+            </select>
+        </td>
+
+        <td *ngIf  = 'ponovniPokusaj == true'>
+            <select name="takmicari" id="" [(ngModel)] = 'takmicar'>
+                <option [value]="t.idS" *ngFor = 'let t of sportistiKojiDeleMesto'>{{t.ime_i_prezime}}</option>
+            </select>
+        </td>
+        <td>
+            <input type="number" [(ngModel)] = 'prviPokusaj'>
+        </td>
+        <td>
+            <input type="number" [(ngModel)] = 'drugiPokusaj'>
+        </td>
+        <td>
+            <input type="number" [(ngModel)] = 'treciPokusaj'>
+        </td>
+        <td *ngIf = 'ponovniPokusaj == false'>
+            <button (click) = 'unosBacanjeSkokovi(r.naziv)'>Unesi rezultat</button>
+        </td>
+        <td *ngIf = 'ponovniPokusaj == true'>
+            <button (click) = 'unosBacanjeSkokovi1(takmicar)'>Unesi rezultat</button>
+        </td>
+
+    </tr>
+</table>
+<div *ngIf =' ponovniPokusaj == false'>
+    <button (click) = 'zavrsiSkokBacanja()'>Zavrsi</button>
+</div>
+<div *ngIf =' ponovniPokusaj == true'>
+    <button (click) = 'zavrsiSkokBacanja1()'>Zavrsi</button>
+</div>
+
+</div>
+<div *ngIf= 'disciplina == "100 metara trcanje" || disciplina == "200 metara trcanje" || disciplina == "400 metara trcanje" || disciplina == "100m leptir" || disciplina == "200m slobodno"'>
+Rezultate unesti u formatu SS,TT 
+<table>
+    <tr>
+        <td>Naziv takmicenja:</td>
+        <td>Takmicar:</td>
+        <td>Rezultat:</td>
+    </tr>
+    <tr *ngFor = 'let r of rasporedTakmicenja'>
+        <td>{{r.naziv}}</td>
+        <td *ngIf  = 'ponovniPokusaj == false'>
+            <select name="takmicari" id="" [(ngModel)] = 'takmicar'>
+                <option [value]="t.idS" *ngFor = 'let t of r.takmicari'>{{t.ime_i_prezime}}</option>
+            </select>
+        </td>
+        <td *ngIf  = 'ponovniPokusaj == true'>
+            <select name="takmicari" id="" [(ngModel)] = 'takmicar'>
+                <option [value]="t.idS" *ngFor = 'let t of sportistiKojiDeleMesto'>{{t.ime_i_prezime}}</option>
+            </select>
+        </td>
+
+        <td>
+            <input type="number" [(ngModel)] = 'rezultatMaleTrke'>
+        </td>
+        <td *ngIf = 'ponovniPokusaj == false'>
+            <button (click) = 'unosMaleTrke(r.naziv)'>Unesi rezultat</button>
+        </td>
+        <td *ngIf = 'ponovniPokusaj == true'>
+            <button (click) = 'unosMaleTrke1(takmicar)'>Unesi rezultat</button>
+        </td>
+    </tr>
+
+
+</table>
+<div *ngIf =' ponovniPokusaj == false'>
+    <button (click) = 'zavrsiMaleTrke()'>Zavrsi</button>
+</div>
+<div *ngIf =' ponovniPokusaj == true'>
+    <button (click) = 'zavrsiMaleTrke1()'>Zavrsi</button>
+</div>
+</div>
+
+<div *ngIf= ' disciplina == "800 metara trcanje" || disciplina == "5000 metara trcanje" || disciplina == "10000 metara trcanje" '>
+Rezultate uneti u formatu MM:SS,TT
+<table>
+    <tr>
+        <td>Naziv takmicenja:</td>
+        <td>Takmicar:</td>
+        <td>Rezultat:</td>
+    </tr>
+    <tr *ngFor = 'let r of rasporedTakmicenja'>
+        <td>{{r.naziv}}</td>
+        <td *ngIf  = 'ponovniPokusaj == false'>
+            <select name="takmicari" id="" [(ngModel)] = 'takmicar'>
+                <option [value]="t.idS" *ngFor = 'let t of r.takmicari'>{{t.ime_i_prezime}}</option>
+            </select>
+        </td>
+        <td *ngIf  = 'ponovniPokusaj == true'>
+            <select name="takmicari" id="" [(ngModel)] = 'takmicar'>
+                <option [value]="t.idS" *ngFor = 'let t of sportistiKojiDeleMesto'>{{t.ime_i_prezime}}</option>
+            </select>
+        </td>
+        <td>
+            <input type="text" [(ngModel)] = 'rezultatVelikeTrke'>
+        </td>
+
+        <td *ngIf =' ponovniPokusaj == false'>
+            <button (click) = 'unosVelikeTrke(r.naziv)'>Unesi rezultat</button>
+        </td>
+        <td *ngIf =' ponovniPokusaj == true'>
+            <button (click) = 'unosVelikeTrke1(takmicar)'>Unesi rezultat</button>
+        </td>
+    </tr>
+
+
+</table>
+<div *ngIf =' ponovniPokusaj == false'>
+    <button (click) = 'zavrsiVelikeTrke()'>Zavrsi</button>
+</div>
+<div *ngIf =' ponovniPokusaj == true'>
+    <button (click) = 'zavrsiVelikeTrke1()'>Zavrsi</button>
+</div>
+</div>
+
+<div *ngIf = 'disciplina == "20km brzo hodanje" || disciplina == "50km brzo hodanje" || disciplina == "maraton" || disciplina == "drumska trka 225km"'>
+Rezultate uneti u formatu CC:MM:SS
+<table>
+    <tr>
+        <td>Naziv takmicenja:</td>
+        <td>Takmicar:</td>
+        <td>Rezultat:</td>
+    </tr>
+    <tr *ngFor = 'let r of rasporedTakmicenja'>
+        <td>{{r.naziv}}</td>
+        <td *ngIf  = 'ponovniPokusaj == false'>
+            <select name="takmicari" id="" [(ngModel)] = 'takmicar'>
+                <option [value]="t.idS" *ngFor = 'let t of r.takmicari'>{{t.ime_i_prezime}}</option>
+            </select>
+        </td>
+        <td *ngIf  = 'ponovniPokusaj == true'>
+            <select name="takmicari" id="" [(ngModel)] = 'takmicar'>
+                <option [value]="t.idS" *ngFor = 'let t of sportistiKojiDeleMesto'>{{t.ime_i_prezime}}</option>
+            </select>
+        </td>
+        <td>
+            <input type="text" [(ngModel)] = 'rezultatVeceTrke'>
+        </td>
+
+        <td *ngIf =' ponovniPokusaj == false'>
+            <button (click) = 'unosVeceTrke(r.naziv)'>Unesi rezultat</button>
+        </td>
+        <td *ngIf =' ponovniPokusaj == true'>
+            <button (click) = 'unosVeceTrke1(takmicar)'>Unesi rezultat</button>
+        </td>
+    </tr>
+
+</table>
+<div *ngIf =' ponovniPokusaj == false'>
+    <button (click) = 'zavrsiVeceTrke()'>Zavrsi</button>
+</div>
+<div *ngIf =' ponovniPokusaj == true'>
+    <button (click) = 'zavrsiVeceTrke1()'>Zavrsi</button>
+</div>
+</div>
+
+
+<div *ngIf = 'disciplina == "50m trostav" || disciplina == "10m vazdusna puska" || disciplina == "25m malokalibarski pistolj" || disciplina == "10m vazdusni pistolj"'>
+Sest serija:
+<table>
+    <tr>
+        <td>Naziv takmicenja:</td>
+        <td>Sportista: </td>
+        
+        <td>Prva serija:</td>
+        <td>Druga serija:</td>
+        <td>Treca serija:</td>
+        <td>Cetvrta serija:</td>
+        <td>Peta serija:</td>
+        <td>Sest serija:</td>
+    </tr>
+    <tr *ngFor = 'let r of rasporedTakmicenja'>
+        <td>
+            {{r.naziv}}
+        </td>
+        <td *ngIf  = 'ponovniPokusaj == false'>
+            <select name="takmicari" id="" [(ngModel)] = 'takmicar'>
+                <option [value]="t.idS" *ngFor = 'let t of r.takmicari'>{{t.ime_i_prezime}}</option>
+            </select>
+        </td>
+        <td *ngIf  = 'ponovniPokusaj == true'>
+            <select name="takmicari" id="" [(ngModel)] = 'takmicar'>
+                <option [value]="t.idS" *ngFor = 'let t of sportistiKojiDeleMesto'>{{t.ime_i_prezime}}</option>
+            </select>  
+        </td>
+        <td>
+            <input type="number" [(ngModel)] = 'prvaSerija'>
+        </td>
+        <td>
+            <input type="number" [(ngModel)] = 'drugaSerija'>
+        </td>
+        <td>
+            <input type="number" [(ngModel)] = 'trecaSerija'>
+        </td>
+        <td>
+            <input type="number" [(ngModel)] = 'cetvrtaSerija'>
+        </td>
+        <td>
+            <input type="number" [(ngModel)] = 'petaSerija'>
+        </td>
+        <td>
+            <input type="number" [(ngModel)] = 'sestaSerija'>
+        </td>
+        <td *ngIf = 'ponovniPokusaj == false'>
+            <button (click) = 'unosPucanje(r.naziv)'>Unesi rezultat</button>
+        </td>
+        <td *ngIf = 'ponovniPokusaj == true'>
+            <button (click) = 'unosPucanje1(takmicar)'>Unesi rezultat</button>
+        </td>
+
+    </tr>
+</table>
+<div *ngIf =' ponovniPokusaj == false'>
+    <button (click) = 'zavrsiPucanje()'>Zavrsi</button>
+</div>
+<div *ngIf =' ponovniPokusaj == true'>
+    <button (click) = 'zavrsiPucanje1()'>Zavrsi</button>
+</div>
+
+</div>
+<div *ngIf = 'disciplina == "singl"'>
+<div *ngIf = 'zavrsenoPolufinale == false'> 
+       <table>
+        <tr>
+            <td>
+                Naziv takmicenja: 
+            </td>
+            <td>
+                Sportista: 
+            </td>
+            <td>
+                Rezultat:
+            </td>
+        </tr>
+        <tr *ngFor = 'let r of rasporedTakmicenja'>
+            <td>
+               {{r.naziv}}
+            </td>
+            
+            <td>
+                <select name="takmicari" id="" [(ngModel)] = 'takmicar'>
+                    <option [value]="t.idS" *ngFor = 'let t of r.takmicari'>{{t.ime_i_prezime}}</option>
+                </select>
+            </td>
+
+            <br>
+            <td>
+                <input type="number" name="set" [(ngModel)] = 'set'>
+            </td>
+            <td>
+                <button (click) = 'unesiSet(r.naziv)'>Unesi rezultat</button>
+            </td>
+
+           
+        </tr>
+        
+    </table>
+    <td>
+        <button (click) = 'zavrsiPolufinale()'>Zavrsis</button>
+    </td>
+</div>
+
+    <div *ngIf = 'zavrsenoPolufinale == true'>
+        <tr>
+            <td>
+                Naziv takmicenja: 
+            </td>
+            <td>
+                Sportista: 
+            </td>
+            <td>
+                Rezultat:
+            </td>
+        </tr>
+        
+
+        <tr>
+            <td>Finale:</td>
+            <td>
+                <select name="takmicari" id="" [(ngModel)] = 'takmicarPrvoMesto'>
+                    <option [value]="t.idS" *ngFor = 'let t of sportistiFinaleTenis'>{{t.ime_i_prezime}}</option>
+                </select>
+            </td>
+            <td>
+                <input type="number" name="set" [(ngModel)] = 'set'>
+            </td>
+            <td>
+              
+                    <button (click) = 'unesiPrvoMesto(takmicarPrvoMesto)'>Unesi rezultat za prvo mesto</button>
+             
+            </td>
+            <td>
+                <button (click) = 'zavrsiPrvoMesto()'>Zavrsi</button>
+            </td>
+        </tr>
+        <tr>
+            <td>Trece mesto:</td>
+            <td>
+                <select name="takmicari" id="" [(ngModel)] = 'takmicarTreceMesto'>
+                    <option [value]="t.idS" *ngFor = 'let t of sportistiTreceMesto'>{{t.ime_i_prezime}}</option>
+                </select>
+            </td>
+            <td>
+                <input type="number" name="set" [(ngModel)] = 'setZaTrece'>
+
+            </td>
+            <td>
+                <button (click) = 'unesiTreceMesto(takmicarTreceMesto)'> Unesi rezultat za trece mesto </button>
+            </td>
+            <td>
+                <button (click)='zavrsiTreceMesto()'>Zavrsi</button>
+            </td>
+        </tr>
+    </div>
+
+</div>
+
+<div>
+    {{poruka}}
+</div>
+
+<div>
+    <button (click) = 'nazad()'>Nazad>></button>
+</div>

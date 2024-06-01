@@ -1,0 +1,32 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css">
+Sport i disciplina : 
+
+{{sport}} || {{disciplina}}
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <td>Ime i prezime:</td>
+        <td></td>
+    </tr>
+    
+</thead>
+<tbody>
+    <tr *ngFor = 'let s of sportisti'>
+        <td>
+        {{s.ime_i_prezime}}
+    </td>
+    <td>
+        <button (click) = 'dodaj(s.idS, s.ime_i_prezime)'>Dodaj sportistu</button>
+    </td>
+    </tr>
+    
+</tbody>
+</table>
+
+<div>
+    <button (click) = 'nazad()'>Nazad>></button>
+</div>
+
+<div>
+    {{poruka}}
+</div>

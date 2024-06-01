@@ -1,0 +1,167 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css">
+
+<div *ngIf = 'sport != "Tenis" '>
+<table class="table table-striped">
+    <tr>
+    <td>Ime i prezime sportista koji ucestvuju:</td>
+</tr>
+<tr *ngFor = 'let t of takmicari'>
+   <td> {{t.ime_i_prezime}} </td>
+</tr>
+</table>
+<div>
+    <button (click)= 'randomAlg()'>Dodeli sportiste</button>
+</div>
+</div>
+
+<div *ngIf = 'sport == "Tenis"'>
+    <table>
+        <tr>
+            <td>
+                Ime i prezime sportista koji ucestvuju
+            </td>
+        </tr>
+        <tr *ngFor = 'let t of takmicari'>
+            <td>
+                {{t.ime_i_prezime}}
+            </td>
+        </tr>
+    </table>
+    <div>
+        <button (click) = 'randomAlgTenis()'>Ubacivanje u zreb</button>
+    </div>
+</div>
+<div *ngIf = 'unosTenis == 1'>
+    <table>
+        <thead>
+            <tr>
+                <td>
+                    Id Takmicenja:
+                </td>
+                <td>
+                    Sport:
+                </td> 
+                <td>
+                    Disciplina:
+                </td>
+                <td>
+                    Pol:
+                </td>
+                <td>
+                    Lokacija:
+                </td>
+                <td>
+                    Naziv takmicenja:
+                </td>
+                <td>
+                    Unesite datum: 
+                </td>
+                <td>
+                    Unesite vreme pocetka: 
+                </td>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    {{takmicenje.idT}}
+                </td>
+                <td>
+                    {{takmicenje.sport}}
+                </td>
+                <td>
+                    {{takmicenje.disciplina}}
+                </td>
+                <td>
+                    {{takmicenje.pol}}
+                </td>
+                <td>
+                    {{takmicenje.lokacija}}
+                </td>
+
+                <td>
+                    <select name="rasporedi" id="" [(ngModel)] = 'tak'>
+                        <option [value]="t.naziv" *ngFor = 'let t of sviRasporediTenisa'>{{t.naziv}}</option>
+                    </select>
+                </td>
+                <td>
+                    <input name= 'datum' type="text" [(ngModel)] = 'datum'>
+                </td>
+                <td>
+                    <input name="vreme" type="text" [(ngModel)]='vreme'>
+                </td>
+                <td>
+                    <button (click) = 'unesiTenis(takmicenje.idT, takmicenje.lokacija, tak)'>Unesi raspored</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+
+<div *ngIf = 'unosVreme ==1 && unosFinale == 1 && takmicenje.sport != "Tenis"'> 
+    Finale:
+    <table  class="table table-striped">
+        
+        <thead>
+            <tr>
+                <td>
+                    Id Takmicenja:
+                </td>
+                <td>
+                    Sport:
+                </td> 
+                <td>
+                    Disciplina:
+                </td>
+                <td>
+                    Pol:
+                </td>
+                <td>
+                    Lokacija:
+                </td>
+                <td>
+                    Unesite datum: 
+                </td>
+                <td>
+                    Unesite vreme pocetka: 
+                </td>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    {{finale.idT}}
+                </td>
+                <td>
+                    {{finale.sport}}
+                </td>
+                <td>
+                    {{finale.disciplina}}
+                </td>
+                <td>
+                    {{finale.pol}}
+                </td>
+                <td>
+                    {{finale.lokacija}}
+                </td>
+                <td>
+                    <input type="text" name="datum" [(ngModel)] = 'datum'>
+                </td>
+                <td>
+                    <input type="text" name="vreme" [(ngModel)] = 'vreme'>
+                   
+                </td>
+                <td>
+                    <button (click) = 'unesi(finale.idT, finale.lokacija)'>Unesi</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div>
+    {{poruka}}
+</div>

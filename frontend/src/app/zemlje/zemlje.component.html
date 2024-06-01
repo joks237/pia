@@ -1,0 +1,33 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css">
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Slika</th>
+            <th>Naziv</th>
+            <th>Broj sportista</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let z of zemlje |  paginate: { id: 'foo',
+        itemsPerPage: 10,
+        currentPage: page,
+        totalItems: total } ">
+            <td>
+                <img width='150px' height='100px' [src]='getLink(z)'>
+            </td>
+            <td>
+                {{z.naziv}} 
+            </td>
+            <td>
+                {{z.broj}}
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div>
+    <pagination-controls id="foo" maxSize="21" directionLinks="true" (pageChange)="page = $event" class= "text-center"></pagination-controls>
+</div>
+<div>
+    <button (click) = 'home()'>Povratak na home</button>
+</div>

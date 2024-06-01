@@ -1,0 +1,16 @@
+.dugme{
+    position: absolute;
+    left:    0;
+    bottom:   0;
+    text-align: center;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    display: grid;
+}
+
+table, td {
+    border: 1px solid black;
+    text-align: center;
+    
+  }

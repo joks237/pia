@@ -1,0 +1,22 @@
+.welcome-text{
+    position:absolute;
+    width: 600px;
+    height: 300px ;
+    margin: 20% 30%;
+    text-align: center;
+    font-size: 45px;
+}
+
+header{
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.dugme{
+    position: absolute;
+
+    text-align: center;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    display: grid;
+}

@@ -1,0 +1,13 @@
+table, th, td {
+    border: 1px solid black;
+    text-align: center;
+    
+  }
+
+  .dugme{
+    text-align: center;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    display: grid;
+  }

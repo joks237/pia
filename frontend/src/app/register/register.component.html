@@ -1,0 +1,76 @@
+<app-meni></app-meni>
+
+<h1>Registration form</h1>
+
+<p>Please fill in this form to create an account.</p> 
+
+
+
+    <table>
+        <tr>
+            <td>Username:</td>
+            <td>
+                <input type="text" placeholder="Enter username" name="username" [(ngModel)] = 'username'>
+            </td>
+        </tr>
+        <tr>
+            <td>Password:</td>
+            <td>
+                <input type="password" placeholder="Enter password" name="password" [(ngModel)]= 'password'>
+            </td>
+        </tr>
+        <tr>
+            <tr>
+                <td>Confirm Password:</td>
+                <td>
+                    <input type="password" placeholder="Confirm password" name="confirmpassword" [(ngModel)]= 'confirmPassword'>
+                </td>
+            </tr>
+            <tr>
+                <td>Name:</td>
+                <td>
+                    <input type="text" placeholder="Enter name" name="name" [(ngModel)]= 'name'>
+                </td>
+            </tr>
+            <tr>
+                <td>Last Name:</td>
+                <td>
+                    <input type="text" placeholder="Enter lastname" name="lastname" [(ngModel)]= 'lastname'>
+                </td>
+            </tr>
+            <tr>
+                <td>Nationality:</td>
+                <td>
+                    <input type="text" placeholder="Enter nationality" name="nationality" [(ngModel)]= 'nationality'>
+                </td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td>
+                    <input type="text" placeholder="Enter email" name="email" [(ngModel)]= 'email'>
+                </td>
+            </tr>
+            <tr>
+                <td>Type:</td>
+                <td>
+                    <select name="tip" id="" [(ngModel)]= 'type'>
+                    <option value="vodjanacionalnedelegacije">Vodja delegacije</option>
+                    <option value="delegat">Delegat</option>
+                </select>
+                </td>
+            </tr>
+        <tr>
+
+            <td colspan="2">
+                <button (click) = 'register()'>Register</button>
+            </td>
+        </tr>
+        <br>
+        <br>
+      
+        
+    </table>
+    <div class="greska">
+        {{poruka}}
+    </div>
+

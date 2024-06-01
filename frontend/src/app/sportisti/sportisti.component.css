@@ -1,0 +1,24 @@
+table, td {
+    border: 1px solid black;
+    text-align: center;
+    
+  }
+
+thead{
+    background-color: darkred;
+    color: white;
+}
+
+.tabela{
+  margin-left: auto;
+  margin-right: auto; 
+  text-align: left;
+}
+
+.dugme{
+  text-align: center;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  display: grid;
+}
