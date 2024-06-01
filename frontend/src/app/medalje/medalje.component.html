@@ -1,0 +1,40 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css">
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <td>Rang:</td>
+        <td>Drzava:</td>
+        <td>
+            <img class="resize" src="assets/gold.jpg" alt="">
+        </td>
+        <td>
+            <img class="resize" src="assets/silver.jpg" alt="">
+        </td>
+        <td>
+            <img class="resize" src="assets/bronze.jpg" alt="">
+        </td>
+        <td>Ukupno medalja:</td>
+    </tr>
+</thead>
+<tbody>
+    <tr *ngFor = "let m of medalje |  paginate: { id: 'foo',
+    itemsPerPage: 10,
+    currentPage: page,
+    totalItems: total }">
+        <td>{{m.rang}}</td>
+        <td>{{m.naziv}}</td>
+        <td>{{m.brojZlatnih}}</td>
+        <td>{{m.brojSrebrnih}}</td>
+        <td>{{m.brojBronzanih}}</td>
+        <td>{{m.ukupanBroj}}</td>
+
+    </tr>
+</tbody>
+</table>
+<div>
+    <pagination-controls id="foo" maxSize="21" directionLinks="true" (pageChange)="page = $event" class= "text-center"></pagination-controls>
+</div>
+<div>
+    <button (click) = 'home()'>Povratak na home</button>
+</div>

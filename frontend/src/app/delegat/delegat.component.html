@@ -1,0 +1,46 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<app-meni></app-meni>
+<div>
+  <h4>  Moja takmicenja: </h4>
+    <table class="table table-striped">
+      <thead>      <tr>
+        <td>Sport:</td>
+        <td>Disciplina:</td>
+        <td>Pol:</td>
+        <td>Akcija:</td>
+      </tr>
+    </thead>
+<tbody>
+  <tr *ngFor = 'let m of mojaTakmicenja'>
+    <td>{{m.sport}}</td>
+    <td>{{m.disciplina}}</td>
+    <td>{{m.pol}}</td>
+    <td>
+      <div *ngIf = 'm.formiranRaspored ==0'>
+          <button (click) = 'unosRaspored(m.idT)'>Unesite raspored takmicenja</button>
+      </div>
+      <div *ngIf = 'm.formiranRaspored == 1'>
+          <button (click) = 'unosRezultat(m.idT)'>Unesite rezultate takmicenja</button>
+      </div>
+    </td>
+  </tr>
+</tbody>
+    </table>
+    </div>
+
+
+<div class= "div1"  >
+    
+      
+    
+    <header class="welcome-text">
+    Dobrodosli na stranicu delegata zemlje {{korisnik.nationality}} na Olimpijskim igrama u Tokiu 2021!
+  </header>
+
+  
+
+</div>
+<div>
+<button (click) = 'logout()'> Odjavi se
+</button>
+</div>

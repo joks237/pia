@@ -1,0 +1,9 @@
+.resize {
+    width: 40px;
+    height: auto;
+}
+
+table, th, td {
+    border: 1px solid black;
+    text-align: center;
+  }
