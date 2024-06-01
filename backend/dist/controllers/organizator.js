@@ -1,0 +1,1 @@
+//# sourceMappingURL=organizator.js.map
